@@ -1,24 +1,33 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LendCdPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {Component, OnInit} from '@angular/core';
+import {NavParams, ViewController} from 'ionic-angular';
+import {Cd} from "../../models/Cd";
+import {BookscdService} from "../../services/bookscd.service";
 
 @Component({
   selector: 'page-lend-cd',
   templateUrl: 'lend-cd.html',
 })
-export class LendCdPage {
+export class LendCdPage implements OnInit{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  index: number;
+  cd: Cd;
+
+  constructor(public viewCtrl: ViewController,
+              public navParams: NavParams,
+              public bookCdService: BookscdService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LendCdPage');
+  ngOnInit(){
+    this.index = this.navParams.get('index');
+    this.cd = this.bookCdService.cdList[this.index];
+  }
+
+  dismissModal(){
+    this.viewCtrl.dismiss();
+  }
+
+  onToggleLendCd(){
+    this.cd.isLend = !this.cd.isLend;
   }
 
 }
