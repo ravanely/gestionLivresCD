@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {ModalController} from 'ionic-angular';
+import {Cd} from "../../models/Cd";
+import {BookscdService} from "../../services/bookscd.service";
+import {LendCdPage} from "../lend-cd/lend-cd";
 
-/**
- * Generated class for the CdListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-cd-list',
@@ -14,11 +11,17 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CdListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  cdList: Cd[];
+
+  constructor(public modalCtrl: ModalController, private bookCdService: BookscdService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CdListPage');
+  ionViewWillLoad(){
+    this.cdList = this.bookCdService.cdList.slice();
   }
 
+  onLoadCd(index: number){
+    let modal = this.modalCtrl.create(LendCdPage, {index: index});
+    modal.present();
+  }
 }

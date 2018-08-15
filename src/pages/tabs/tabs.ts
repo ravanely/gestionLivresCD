@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the TabsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {BookListPage} from "../book-list/book-list";
+import {CdListPage} from "../cd-list/cd-list";
 
 @Component({
   selector: 'page-tabs',
@@ -14,11 +9,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class TabsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  bookListPage = BookListPage;
+  cdListPage = CdListPage;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
 }
