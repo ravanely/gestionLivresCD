@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import {TabsPage} from "../pages/tabs/tabs";
 import {BookListPage} from "../pages/book-list/book-list";
 import {CdListPage} from "../pages/cd-list/cd-list";
@@ -17,7 +16,6 @@ import {BookscdService} from "../services/bookscd.service";
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     TabsPage,
     BookListPage,
     CdListPage,
@@ -32,7 +30,6 @@ import {BookscdService} from "../services/bookscd.service";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     TabsPage,
     BookListPage,
     CdListPage,
