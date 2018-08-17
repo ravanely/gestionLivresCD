@@ -13,10 +13,10 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item
+    <button ion-item [color]="book.isLend ? '' : 'lightred'"
     *ngFor="let book of booklist; let i = index"
     (click)="onLoadBooks(i)">
-      {{book.title}}
+      <ion-icon name="book" [color]="book.isLend ? 'secondary' : 'danger'" margin-right></ion-icon>{{book.title}}
     </button>
   </ion-list>
 </ion-content>

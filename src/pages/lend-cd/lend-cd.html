@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content padding>
-<ion-card>
+<ion-card [ngClass]="{'is-lend': cd.isLend, 'no-lend': !cd.isLend}">
   <ion-card-header>{{cd.albumTitle}}</ion-card-header>
   <ion-card-content>
     <p>Artiste: {{cd.artistName}}</p>

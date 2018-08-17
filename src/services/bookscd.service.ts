@@ -33,7 +33,7 @@ export class BookscdService {
       ],
       publishDate: '2018',
       ISBN: '978-1-78862-323-o',
-      isLend: false
+      isLend: true
     },
     {
       title: 'SCRUM',
@@ -43,7 +43,7 @@ export class BookscdService {
       ],
       publishDate: '2015',
       ISBN: '9782100742165',
-      isLend: true
+      isLend: false
     },
     {
       title: 'Working with odoo 10',
